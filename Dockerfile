@@ -2,10 +2,6 @@ FROM alpine:3.4
 
 ENV VERSION=v4.4.5 NPM_VERSION=2
 
-# For base builds
-# ENV CONFIG_FLAGS="--without-npm" RM_DIRS=/usr/include
-ENV CONFIG_FLAGS="--fully-static --without-npm" DEL_PKGS="libgcc libstdc++" RM_DIRS=/usr/include
-
 RUN apk add --no-cache curl make gcc g++ python linux-headers paxctl libgcc libstdc++ gnupg && \
   gpg --keyserver ha.pool.sks-keyservers.net --recv-keys \
     9554F04D7259F04124DE6B476D5A82AC7E37093B \
